@@ -10,7 +10,7 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class PlayerService {
-  private url = 'http://localhost:8081/players';
+  private url = 'http://localhost:8080/players';
   private options = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
