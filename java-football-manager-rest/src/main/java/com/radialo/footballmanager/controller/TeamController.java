@@ -37,12 +37,12 @@ public class TeamController {
                 .mapToDto(teamService.add(teamDtoMapper.mapToModel(dto)));
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public TeamResponseDto get(@PathVariable Long id) {
         return teamDtoMapper.mapToDto(teamService.get(id));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public TeamResponseDto update(@PathVariable Long id,
                                   @Valid @RequestBody TeamRequestDto dto) {
         Team team = teamDtoMapper.mapToModel(dto);
