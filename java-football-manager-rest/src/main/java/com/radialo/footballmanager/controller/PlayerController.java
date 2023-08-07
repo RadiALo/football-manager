@@ -4,8 +4,11 @@ import com.radialo.footballmanager.dto.request.PlayerRequestDto;
 import com.radialo.footballmanager.dto.response.PlayerResponseDto;
 import com.radialo.footballmanager.model.Player;
 import com.radialo.footballmanager.service.PlayerService;
+import com.radialo.footballmanager.service.TeamService;
+import com.radialo.footballmanager.service.TransferService;
 import com.radialo.footballmanager.service.mapper.PlayerDtoMapper;
 import jakarta.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +30,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlayerController {
     private final PlayerService playerService;
     private final PlayerDtoMapper playerDtoMapper;
+    private final TeamService teamService;
+    private final TransferService transferService;
 
     @PostMapping
     public PlayerResponseDto add(@Valid @RequestBody PlayerRequestDto dto) {
@@ -63,12 +68,24 @@ public class PlayerController {
         playerService.delete(id);
     }
 
+    @PostMapping("/{playerId}/transfer")
+    public ResponseEntity<Void> transferPlayer(
+            @PathVariable Long playerId,
+            @RequestParam Long teamId) {
+        transferService.transferPlayer(playerService.get(playerId),
+                teamService.get(teamId));
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping("/init")
-    public ResponseEntity<String> initPlayerData(
+    public List<PlayerResponseDto> initPlayerData(
             @RequestBody List<PlayerRequestDto> playerDtoList) {
+        List<PlayerResponseDto> playerResponseDtos = new ArrayList<>();
         for (PlayerRequestDto dto : playerDtoList) {
-            playerService.add(playerDtoMapper.mapToModel(dto));
+            playerResponseDtos.add(playerDtoMapper
+                    .mapToDto(playerService.add(playerDtoMapper
+                            .mapToModel(dto))));
         }
-        return ResponseEntity.ok("Data initialized successfully for players");
+        return playerResponseDtos;
     }
 }
