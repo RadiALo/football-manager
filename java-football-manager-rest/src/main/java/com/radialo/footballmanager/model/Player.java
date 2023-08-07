@@ -1,10 +1,13 @@
 package com.radialo.footballmanager.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
-
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -14,8 +17,8 @@ public class Player {
     private Long id;
     private String firstName;
     private String lastName;
+    private int experienceMonths;
     private int age;
-    private LocalDate careerStartDate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
