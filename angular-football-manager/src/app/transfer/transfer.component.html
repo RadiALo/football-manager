@@ -1,0 +1,15 @@
+<div class="container">
+    <p>
+        Player to transfer:
+        <select [(ngModel)]="transferPlayerId">
+          <option *ngFor="let player of players" [value]="player.id">{{ player.firstName }} {{ player.lastName }}</option>
+        </select>
+    </p>
+    <p>
+        To team:
+        <select [(ngModel)]="transferTeamId">
+          <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+        </select>
+    </p>
+    <button (click)="transfer()">Transfer</button>
+</div>

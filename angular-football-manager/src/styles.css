@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #fffad0;
+  font-family: Bahnschrift;
+}
+    
+/* Headers */
+header {
+  font-family: "Comic Sans MS";
+  overflow: hidden;
+  background-color: #fff174;
+  padding: 10px 10px;
+  margin: -10px -10px;
+}
+   
+a.button {
+  margin-right: 5px;
+}
+    
+a.button:hover {
+  background-color: #dcd063;
+}
+    
+/* div */
+div.container {
+  background-color: #fff174;
+  float: inherit;
+  text-align: left;
+  margin-top: 24px;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+   
+p {
+  float: inherit;
+  text-align: left;
+  margin-top: 6px;
+  padding: 1px 1px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+    
+input.like {
+  float: right;
+  background-color: rgba(0,0,0,0);
+  border-color: rgba(0,0,0,0);
+}
+  
+input.like:hover {
+  background-color: gold;
+  border-radius: 4px;
+}
+    
+button {
+  background-color: #ffc64b;
+  border-color: rgb(255, 239, 75, 0);
+  border-radius: 4px;
+  margin-top: 12px;
+  padding: 6px 12px;
+}
+    
+button:hover {
+  background-color: #f9b82c;
+}
+    
+a.button {
+  float: left;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}

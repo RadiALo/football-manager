@@ -9,6 +9,7 @@ import { PlayerDetailsComponent } from './player-details/player-details.componen
 import { TeamsComponent } from './teams/teams.component';
 import { TeamDetailsComponent } from './team-details/team-details.component';
 import { HttpClientModule } from "@angular/common/http";
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from "@angular/common/http";
     PlayersComponent,
     PlayerDetailsComponent,
     TeamsComponent,
-    TeamDetailsComponent
+    TeamDetailsComponent,
+    TransferComponent
   ],
   imports: [
     AppRoutingModule,

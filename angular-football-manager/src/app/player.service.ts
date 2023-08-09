@@ -62,7 +62,7 @@ export class PlayerService {
 
   transferPlayer(playerId: number, teamId: number): Observable<void> {
     return this.http
-      .post<void>(`${this.url}/${playerId}/transfer`, { teamId }, this.options)
+      .post<void>(`${this.url}/${playerId}/transfer?teamId=${teamId}`, this.options)
       .pipe(
         tap(_ => this.messageService.add(`PlayerService: Transferred player with id ${playerId} to team with id ${teamId}`))
       );

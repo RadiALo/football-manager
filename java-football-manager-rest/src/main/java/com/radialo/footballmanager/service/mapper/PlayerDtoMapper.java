@@ -19,7 +19,7 @@ public class PlayerDtoMapper implements RequestDtoMapper<PlayerRequestDto, Playe
         player.setAge(playerResponseDto.getAge());
         player.setFirstName(playerResponseDto.getFirstName());
         player.setLastName(playerResponseDto.getLastName());
-        player.setExperienceMonths(playerResponseDto.getExperienceMoths());
+        player.setExperienceMonths(playerResponseDto.getExperienceMonths());
         player.setTeam(teamService.get(playerResponseDto.getTeamId()));
         return player;
     }

@@ -19,7 +19,10 @@ export class PlayersComponent {
   page: number = 0;
   size: number = 5;
   
-  constructor(private playerService: PlayerService, private teamService: TeamService) { }
+  constructor(
+    private playerService: PlayerService,
+    private teamService: TeamService
+    ) { }
 
   ngOnInit() {
     this.getPlayers()

@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="container">
   <table>
     <tr *ngFor="let team of teams">
       <td>{{ team.id }}</td>
@@ -18,7 +18,7 @@
 
 <h2>Add new team</h2>
     
-<div class="form-container">
+<div class="container">
   <p>Name: <input placeholder="Name" [(ngModel)]="newTeam.name"></p>
   <p>City: <input placeholder="City" [(ngModel)]="newTeam.city"></p>
   <p>Country: <input placeholder="Country" [(ngModel)]="newTeam.country"></p>
