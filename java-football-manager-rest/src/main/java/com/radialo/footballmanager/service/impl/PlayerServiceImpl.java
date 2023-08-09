@@ -38,4 +38,9 @@ public class PlayerServiceImpl implements PlayerService {
     public void delete(Long id) {
         playerRepository.deleteById(id);
     }
+
+    @Override
+    public Long count() {
+        return playerRepository.count();
+    }
 }

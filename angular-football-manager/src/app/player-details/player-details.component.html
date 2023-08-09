@@ -1,1 +1,37 @@
-<p>player-details works!</p>
+<h2>Player Details</h2>
+<p>{{ player.id }}</p>
+<div *ngIf="!editMode" class="container">
+  <p> First name: {{ player.firstName }}</p>
+  <p> Second name: {{ player.lastName }}</p>
+  <p> Experience: {{ player.experienceMonths }}</p>
+  <p> Age: {{ player.age }}</p>
+  <p> Team:
+    <a *ngIf="player.teamId" [routerLink]="['/teams', player.teamId, 'players']">
+        {{ getTeamName(player.teamId) }}
+    </a>
+  </p>
+  <p *ngIf="!player.teamId">
+    Unknown
+  </p>
+  <p>
+    <button (click)="editMode = true">Edit</button>
+  </p>
+</div>
+<div *ngIf="editMode" class="container">
+  <p>First name: <input [(ngModel)]="player.firstName"></p>
+  <p>Last name: <input [(ngModel)]="player.lastName"></p>
+  <p>Experience: <input [(ngModel)]="player.experienceMonths" type="number"></p>
+  <p>Age: <input [(ngModel)]="player.age" type="number"></p>
+  <p> Team:
+    <select [(ngModel)]="player.teamId">
+      <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+    </select>
+  </p>
+  <p *ngIf="!player.teamId">
+    Unknown
+  </p>
+  <p>
+    <button (click)="save()">Save</button>
+    <button (click)="cancel()">Cancel</button>
+  </p>
+</div>

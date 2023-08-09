@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -8,6 +9,7 @@ import { PlayerDetailsComponent } from './player-details/player-details.componen
 import { TeamsComponent } from './teams/teams.component';
 import { TeamDetailsComponent } from './team-details/team-details.component';
 import { HttpClientModule } from "@angular/common/http";
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { HttpClientModule } from "@angular/common/http";
     PlayersComponent,
     PlayerDetailsComponent,
     TeamsComponent,
-    TeamDetailsComponent
+    TeamDetailsComponent,
+    TransferComponent
   ],
   imports: [
     AppRoutingModule,
+    FormsModule,
     BrowserModule,
     HttpClientModule,
   ],

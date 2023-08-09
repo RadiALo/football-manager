@@ -14,4 +14,6 @@ public interface PlayerService {
     Player update(Player player);
 
     void delete(Long id);
+
+    Long count();
 }

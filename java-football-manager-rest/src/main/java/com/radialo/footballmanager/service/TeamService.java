@@ -17,4 +17,6 @@ public interface TeamService {
     Team update(Team team);
 
     List<Player> getPlayersByTeamId(Long teamId);
+
+    Long count();
 }

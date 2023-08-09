@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+import { InfoResponse } from './model/info';
 import { PlayerRequest, PlayerResponse } from './model/player';
 import { MessageService } from './message.service';
 
@@ -16,6 +17,13 @@ export class PlayerService {
   };
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
+
+  getInfo(): Observable<InfoResponse> {
+    return this.http.get<InfoResponse>(`${this.url}/info`)
+      .pipe(
+        tap(_ => this.messageService.add(`PlayerService: Players info fetched`))
+      );
+  }
 
   getPlayers(page: number, size: number): Observable<PlayerResponse[]> {
     return this.http.get<PlayerResponse[]>(`${this.url}?page=${page}&size=${size}`)
@@ -54,7 +62,7 @@ export class PlayerService {
 
   transferPlayer(playerId: number, teamId: number): Observable<void> {
     return this.http
-      .post<void>(`${this.url}/${playerId}/transfer`, { teamId }, this.options)
+      .post<void>(`${this.url}/${playerId}/transfer?teamId=${teamId}`, this.options)
       .pipe(
         tap(_ => this.messageService.add(`PlayerService: Transferred player with id ${playerId} to team with id ${teamId}`))
       );
