@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators';
 import { TeamRequest, TeamResponse } from './model/team';
 import { PlayerResponse } from './model/player';
 import { MessageService } from './message.service';
+import { InfoResponse } from './model/info';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,13 @@ export class TeamService {
   };
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
+  
+  getInfo(): Observable<InfoResponse> {
+    return this.http.get<InfoResponse>(`${this.url}/info`)
+      .pipe(
+        tap(_ => this.messageService.add(`PlayerService: Players info fetched`))
+      );
+  }
 
   getTeams(page: number, size: number): Observable<TeamResponse[]> {
     return this.http.get<TeamResponse[]>(`${this.url}?page=${page}&size=${size}`)

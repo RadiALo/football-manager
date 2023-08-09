@@ -1,1 +1,37 @@
-<p>players works!</p>
+<table>
+    <tr *ngFor="let player of players">
+    <td>{{ player.id }}</td>
+    <td><a [routerLink]="['/players', player.id]">{{ player.firstName }}</a></td>
+    <td><a [routerLink]="['/players', player.id]">{{ player.lastName }}</a></td>
+    <td>{{ player.experienceMonths }}</td>
+    <td>{{ player.age }}</td>
+    <td>{{ player.teamId ? getTeamName(player.teamId) : '' }}</td>
+    <td>
+      <button class="delete-button" (click)="deletePlayer(player)">
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
+<div>
+  <button class="page-button" (click)="prevPage()" *ngIf="page !== 0"> 
+    Prev page
+  </button>
+  <button class="page-button" (click)="nextPage()" *ngIf="(page + 1) * size < info.countOfElements"> 
+    Next page
+  </button>
+</div>
+<h2>Add new player</h2>
+
+<div class="form-container">
+  <p>First name: <input placeholder="First name" [(ngModel)]="newPlayer.firstName"></p>
+  <p>Last name: <input placeholder="Last name" [(ngModel)]="newPlayer.lastName"></p>
+  <p>Experience: <input placeholder="Experience in months" [(ngModel)]="newPlayer.experienceMonths" type="number"></p>
+  <p>Age: <input placeholder="age" [(ngModel)]="newPlayer.age" type="number"></p>
+  <p>Team:
+    <select [(ngModel)]="newPlayer.teamId">
+      <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+    </select>
+  </p>
+  <button (click)="addPlayer()">Add Player</button>
+</div>

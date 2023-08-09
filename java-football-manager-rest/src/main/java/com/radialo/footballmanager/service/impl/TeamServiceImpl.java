@@ -45,4 +45,9 @@ public class TeamServiceImpl implements TeamService {
     public List<Player> getPlayersByTeamId(Long teamId) {
         return playerRepository.findAllByTeamId(teamId);
     }
+
+    @Override
+    public Long count() {
+        return teamRepository.count();
+    }
 }

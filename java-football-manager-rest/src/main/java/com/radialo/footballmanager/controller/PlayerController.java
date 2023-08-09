@@ -1,6 +1,7 @@
 package com.radialo.footballmanager.controller;
 
 import com.radialo.footballmanager.dto.request.PlayerRequestDto;
+import com.radialo.footballmanager.dto.response.InfoResponseDto;
 import com.radialo.footballmanager.dto.response.PlayerResponseDto;
 import com.radialo.footballmanager.model.Player;
 import com.radialo.footballmanager.service.PlayerService;
@@ -75,6 +76,13 @@ public class PlayerController {
         transferService.transferPlayer(playerService.get(playerId),
                 teamService.get(teamId));
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/info")
+    public InfoResponseDto getInfo() {
+        InfoResponseDto info = new InfoResponseDto();
+        info.setCountOfElements(playerService.count());
+        return info;
     }
 
     @PostMapping("/init")

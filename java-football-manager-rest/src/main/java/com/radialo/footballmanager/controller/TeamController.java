@@ -1,6 +1,7 @@
 package com.radialo.footballmanager.controller;
 
 import com.radialo.footballmanager.dto.request.TeamRequestDto;
+import com.radialo.footballmanager.dto.response.InfoResponseDto;
 import com.radialo.footballmanager.dto.response.PlayerResponseDto;
 import com.radialo.footballmanager.dto.response.TeamResponseDto;
 import com.radialo.footballmanager.model.Team;
@@ -63,6 +64,13 @@ public class TeamController {
         return teamService.getAllByPage(pageRequest).stream()
                 .map(teamDtoMapper::mapToDto)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/info")
+    public InfoResponseDto getInfo() {
+        InfoResponseDto info = new InfoResponseDto();
+        info.setCountOfElements(teamService.count());
+        return info;
     }
 
     @PostMapping("/init")
