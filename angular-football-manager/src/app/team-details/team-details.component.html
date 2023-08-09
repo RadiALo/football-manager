@@ -1,1 +1,21 @@
-<p>team-details works!</p>
+<h2>Team Details</h2>
+<p>{{ team.id }}</p>
+<div *ngIf="!editMode" class="table-container">
+  <p>{{ team.name }}</p>
+  <p>{{ team.city }}</p>
+  <p>{{ team.country }}</p>
+  <p>{{ team.budget }}</p>
+  <p>{{ team.transferCommission }}</p>
+  <p>
+    <button *ngIf="!editMode" (click)="editMode = true">Edit</button>
+  </p>
+</div>
+<div *ngIf="editMode">
+  <p><input [(ngModel)]="team.name"></p>
+  <p><input [(ngModel)]="team.city"></p>
+  <p><input [(ngModel)]="team.country"></p>
+  <p><input [(ngModel)]="team.budget" type="number"></p>
+  <p><input [(ngModel)]="team.transferCommission" type="number"></p>
+  <button (click)="save()">Save</button>
+  <button (click)="cancel()">Cancel</button>
+</div>

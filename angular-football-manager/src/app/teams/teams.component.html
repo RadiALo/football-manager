@@ -1,1 +1,28 @@
-<p>teams works!</p>
+<div class="table-container">
+  <table>
+    <tr *ngFor="let team of teams">
+      <td>{{ team.id }}</td>
+      <td><a [routerLink]="['/teams', team.id, 'players']">{{ team.name }}</a></td>
+      <td>{{ team.city }}</td>
+      <td>{{ team.country }}</td>
+      <td>{{ team.budget }}</td>
+      <td>{{ team.transferCommission }}</td>
+      <td>
+        <button class="delete-button" (click)="deleteTeam(team)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h2>Add new team</h2>
+    
+<div class="form-container">
+  <p>Name: <input placeholder="Name" [(ngModel)]="newTeam.name"></p>
+  <p>City: <input placeholder="City" [(ngModel)]="newTeam.city"></p>
+  <p>Country: <input placeholder="Country" [(ngModel)]="newTeam.country"></p>
+  <p>Budget: <input placeholder="Budget" [(ngModel)]="newTeam.budget"></p>
+  <p>Transfer Commission: <input placeholder="Transfer commission" [(ngModel)]="newTeam.transferCommission"></p>
+  <button (click)="addTeam()">Add Team</button>
+</div>

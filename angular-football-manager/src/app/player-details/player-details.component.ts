@@ -13,9 +13,9 @@ import { InfoResponse } from '../model/info';
   styleUrls: ['./player-details.component.css']
 })
 export class PlayerDetailsComponent {
-  player: PlayerResponse = {} as PlayerResponse;
-  teams: TeamResponse[] = [];
-  editMode = false;
+  player: PlayerResponse = {} as PlayerResponse
+  teams: TeamResponse[] = []
+  editMode = false
 
   constructor(
     private playerService: PlayerService,
@@ -24,40 +24,40 @@ export class PlayerDetailsComponent {
   ) {}
 
   ngOnInit() {
-    this.getTeams();
-    this.getPlayer();
+    this.getTeams()
+    this.getPlayer()
   }
 
   getPlayer(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.playerService.getPlayer(id)
       .subscribe(player => {
-        this.player = player;
-      });
+        this.player = player
+      })
   }
 
   getTeams() {
     this.teamService.getInfo().subscribe((info: InfoResponse) => {
       this.teamService.getTeams(0, info.countOfElements)
           .subscribe((teams: TeamResponse[]) => {
-            this.teams = teams;
-          });
+            this.teams = teams
+          })
       })
   }
 
   getTeamName(teamId: number): string {
-    const team = this.teams.find(team => team.id === teamId);
-    return team ? team.name : 'Unknown';
+    const team = this.teams.find(team => team.id === teamId)
+    return team ? team.name : 'Unknown'
   }
 
   save(): void {
     this.playerService.updatePlayer(this.player.id, this.player).subscribe({
       next: updatedPlayer => {
-        this.player = updatedPlayer;
+        this.player = updatedPlayer
       },
       error: error => {
-        console.error("There was an error updating the player", error);
-        this.getPlayer();
+        console.error("There was an error updating the player", error)
+        this.getPlayer()
       }
     });
     this.editMode = false;

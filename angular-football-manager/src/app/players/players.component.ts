@@ -38,40 +38,38 @@ export class PlayersComponent {
 
   getPlayers() {
     this.playerService.getPlayers(this.page, this.size).subscribe((players: PlayerResponse[]) => {
-      this.players = players;
-      const teamIds = players.map(p => p.teamId);
-      const min = Math.min(...teamIds)
-      const max = Math.max(...teamIds) + 1
-      const pageSize = max - min
-      const page = min % pageSize
-      this.teamService.getTeams(page, pageSize).subscribe((teams: TeamResponse[]) => {
-        this.teams = teams;
-      });
-    });
+      this.players = players
+      
+    })
+    this.teamService.getInfo().subscribe((info: InfoResponse) => {
+      this.teamService.getTeams(0, info.countOfElements).subscribe((teams: TeamResponse[]) => {
+        this.teams = teams
+      })
+    })
   }
 
   deletePlayer(player: PlayerResponse): void {
     this.playerService.deletePlayer(player.id).subscribe(() => {
-      this.players = this.players.filter(t => t !== player);
-    });
+      this.players = this.players.filter(t => t !== player)
+    })
   }
 
   addPlayer(): void {
     this.playerService.createPlayer(this.newPlayer)
       .subscribe(player => {
-        this.players.push(player);
-        this.newPlayer = {} as PlayerRequest;
-      });
+        this.players.push(player)
+        this.newPlayer = {} as PlayerRequest
+    })
   }
 
   getTeamName(teamId: number): string {
-    const team = this.teams.find(team => team.id === teamId);
-    return team ? team.name : 'NaN';
+    const team = this.teams.find(team => team.id === teamId)
+    return team ? team.name : 'NaN'
   }
 
   getInfo() {
     this.playerService.getInfo().subscribe((info: InfoResponse) => {
-      this.info = info;
+      this.info = info
     });
   }
 
