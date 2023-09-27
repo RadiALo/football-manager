@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,17 +20,19 @@ public class TransferServiceImpl implements TransferService {
     private final PlayerService playerService;
     private final TeamService teamService;
 
+    @Transactional
     @Override
     public void transferPlayer(Player player, Team team) {
-        Team oldTeam = player.getTeam();
         if (player == null) {
             throw new TransferException("Player to transfer cannot be null!");
-        } else if (team == null) {
+        }
+        Team oldTeam = player.getTeam();
+        if (team == null) {
             throw new TransferException("Team to transfer cannot be null!");
         } else if (team.equals(oldTeam)) {
             throw new TransferException("Player cannot be transferred to own team!");
         } else {
-            BigDecimal price = getTransferPrice(player, team);
+            BigDecimal price = getTransferPrice(player, oldTeam);
             if (team.getBudget().compareTo(price) < 0) {
                 throw new RuntimeException("Team has no enough budget to transfer!");
             }

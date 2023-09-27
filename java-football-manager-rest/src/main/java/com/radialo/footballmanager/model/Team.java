@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.DecimalMax;
-import jakarta.validation.constraints.DecimalMin;
 import java.math.BigDecimal;
 import lombok.Data;
 
@@ -21,7 +19,5 @@ public class Team {
     private String city;
     private String country;
     private BigDecimal budget;
-    @DecimalMin(value = "0.0", message = "Commission should not be less than 0%")
-    @DecimalMax(value = "10.0", message = "Commission should not be more than 10%")
     private BigDecimal transferCommission;
 }

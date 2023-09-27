@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class InfoResponseDto {
-    Long countOfElements;
+    private Long countOfElements;
 }
