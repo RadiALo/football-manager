@@ -1,45 +1,63 @@
-body {
-  background-color: #fffad0;
+/* #region page */
+.page {
+  --main-acent-color: #22223b;
+  --primary-color: #9a8c98;
+  --secondary-color: #4a4e69;
+  --color: #c9ada7;
+  --primary-text-color: #22223b;
+  --secondary-text-color: #f2e9e4;
+
+  margin: 0;
+  color: var(--primary-text-color);
+  background-color: var(--secondary-color);
   font-family: Bahnschrift;
 }
-    
-/* Headers */
-header {
-  font-family: "Comic Sans MS";
-  overflow: hidden;
-  background-color: #fff174;
-  padding: 10px 10px;
-  margin: -10px -10px;
+
+.page__body {
+  margin: 0;
 }
-   
-a.button {
-  margin-right: 5px;
-}
-    
-a.button:hover {
-  background-color: #dcd063;
-}
-    
-/* div */
-div.container {
-  background-color: #fff174;
-  float: inherit;
-  text-align: left;
-  margin-top: 24px;
+/* #endregion */
+
+/* container */
+.container {
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 8px;
-  text-decoration: none;
-  font-size: 16px;
+  background-color: var(--primary-color);
   border-radius: 4px;
-}
-   
-p {
-  float: inherit;
+  font-size: 16px;
   text-align: left;
-  margin-top: 6px;
+  box-shadow: 0 1px 3px var(--primary-color);
+}
+
+.container__link {
+  color: var(--primary-text-color);
+}
+
+.container__item {
   padding: 1px 1px;
+  border-radius: 24px;
+  background-color: var(--color);
+  color: var(--primary-text-color);
+  text-align: center;
   text-decoration: none;
   font-size: 16px;
-  border-radius: 4px;
+}
+
+
+.table {
+  width: 100%;
+}
+
+.table__small-column {
+  width: 0;
+}
+
+.table__button {
+  width: 0;
+  background-color: var(--primary-color);
 }
     
 input.like {
@@ -54,10 +72,10 @@ input.like:hover {
 }
     
 button {
-  background-color: #ffc64b;
+  background-color: #22223b;
+  color: var(--secondary-text-color);
   border-color: rgb(255, 239, 75, 0);
   border-radius: 4px;
-  margin-top: 12px;
   padding: 6px 12px;
 }
     
@@ -74,3 +92,54 @@ a.button {
   line-height: 25px;
   border-radius: 4px;
 }
+
+/* #region header */
+.header {
+  background-color: #003049;
+  
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__logo {
+  display: block;
+  padding: 5px 10px;
+
+  color: var(--secondary-text-color);
+  font-family: "Comic Sans MS";
+  font-size: 28px;
+  text-align: center;
+  text-decoration: none;
+}
+/* #endregion */
+
+/* #region nav */
+.nav {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.nav__link {
+  margin-top: 4px;
+  display: block;
+
+  text-decoration: none;
+}
+/* #endregion */

@@ -1,20 +1,33 @@
 <h2>Player Details</h2>
 <p>{{ player.id }}</p>
 <div *ngIf="!editMode" class="container">
-  <p> First name: {{ player.firstName }}</p>
-  <p> Second name: {{ player.lastName }}</p>
-  <p> Experience: {{ player.experienceMonths }}</p>
-  <p> Age: {{ player.age }}</p>
-  <p> Team:
-    <a *ngIf="player.teamId" [routerLink]="['/teams', player.teamId, 'players']">
+  <div class="container__item">
+    First name: {{ player.firstName }}
+  </div>
+  <div class="container__item">
+    Second name: {{ player.lastName }}
+  </div>
+  <div class="container__item">
+    Experience: {{ player.experienceMonths }}
+  </div>
+  <div class="container__item">
+    Age: {{ player.age }}
+  </div>
+  <div class="container__item">
+    Team:
+    <a
+      class="container__link"
+      *ngIf="player.teamId"
+      [routerLink]="['/teams', player.teamId, 'players']"
+    >
         {{ getTeamName(player.teamId) }}
     </a>
-  </p>
+  </div>
   <p *ngIf="!player.teamId">
     Unknown
   </p>
   <p>
-    <button (click)="editMode = true">Edit</button>
+    <button class="button" (click)="editMode = true">Edit</button>
   </p>
 </div>
 <div *ngIf="editMode" class="container">

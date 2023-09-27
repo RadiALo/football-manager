@@ -1,17 +1,25 @@
 <div class="container">
-  <table>
-    <tr *ngFor="let team of teams">
-      <td>{{ team.id }}</td>
-      <td><a [routerLink]="['/teams', team.id, 'players']">{{ team.name }}</a></td>
-      <td>{{ team.city }}</td>
-      <td>{{ team.country }}</td>
-      <td>{{ team.budget }}</td>
-      <td>{{ team.transferCommission }}</td>
-      <td>
-        <button class="delete-button" (click)="deleteTeam(team)">
-          Delete
-        </button>
-      </td>
+  <table class="table">
+    <tr class="table__titles">
+      <td>#</td>
+      <td>Name</td>
+      <td>City</td>
+      <td>Country</td>
+      <td>Budget</td>
+      <td>Commission</td>
+    </tr>
+    <tr class="container__item" *ngFor="let team of teams">
+        <td>{{ team.id }}</td>
+        <td><a class="container__link" [routerLink]="['/teams', team.id, 'players']">{{ team.name }}</a></td>
+        <td>{{ team.city }}</td>
+        <td>{{ team.country }}</td>
+        <td>{{ team.budget }}</td>
+        <td class="table__small-column">{{ team.transferCommission }}</td>
+        <td class="table__button">
+          <button class="delete-button" (click)="deleteTeam(team)">
+            Delete
+          </button>
+        </td>
     </tr>
   </table>
 </div>

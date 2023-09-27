@@ -1,6 +1,53 @@
-<header>
-    <a class="button" [routerLink]="['/players']">Players</a>
-    <a class="button" [routerLink]="['/teams']">Teams</a>
-    <a class="button" [routerLink]="['/transfer']">Transfer</a>
+<header class="header">
+    <a
+      href=""
+      class="header__logo"
+      [routerLink]="['/']"
+    >
+      Football Manager
+    </a>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a
+                    class="nav__link"
+                    [routerLink]="['/players']"
+                >
+                <img
+                  class="nav__icon"
+                  src="./assets/img/icons/player-icon.svg"
+                  alt="Player icon"
+                >
+                </a>
+            </li>
+            <li class="nav__item">
+                <a
+                    class="nav__link"
+                    [routerLink]="['/teams']"
+                >
+                    <img
+                      class="nav__icon"
+                      src="./assets/img/icons/team-icon.svg"
+                      alt="Team icon"
+                    >  
+                  </a>
+            </li>
+            <li class="nav__item">
+                <a
+                    class="nav__link"
+                    [routerLink]="['/transfer']"
+                >
+                  <img
+                    class="nav__icon"
+                    src="./assets/img/icons/transfer-icon.svg"
+                    alt="Transfer icon"
+                  >
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
 <router-outlet></router-outlet>
+<footer class="footer">
+  <a href='https://dryicons.com/icon/id-card-4175'>Icon by Dryicons</a>
+</footer>
