@@ -1,0 +1,65 @@
+@import '../../util/variables';
+
+.team-details {
+  &--tittle {
+    text-align: center;
+    color: $main-color;
+    font-size: 32px;
+  }
+
+  &--buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--id {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+
+    background-color: $main-color;
+    box-shadow: $acent-box-shadow;
+    border-radius: 50%;
+
+    color: $main-text-color;
+    text-align: center;
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  &--link {
+    color: $link-color;
+  }
+
+  &--field {
+    display: flex;
+    justify-content: space-between;
+
+    &--right-value {
+      width: 200px;
+    }
+
+    &--list {
+      width: 180px;
+    }
+  }
+
+  &--container {
+    box-shadow: $main-box-shadow;
+    margin: 10px auto;
+    padding: 32px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 600px;
+    background-color: $main-color;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  &--button {
+    @include button;
+  }
+}

@@ -1,0 +1,36 @@
+$background-color: #2B2E4A;
+
+$main-color: #E84545;
+$main-text-color: #2B2E4A;
+$main-box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+$acent-color: #903749;
+$acent-hover-color: #7f3244;
+$acent-text-color: #372030;
+$acent-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+$link-color: rgb(255, 221, 26);
+$logo-box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+@mixin button {
+  font-family: 'Signika', sans-serif;
+  display: block;
+  height: 50px;
+  width: 200px;
+  box-sizing: border-box;
+
+  background-color: $acent-color;
+  border-color: rgb(255, 239, 75, 0);
+  border-radius: 8px;
+  box-shadow: $acent-box-shadow;
+
+  color: $acent-text-color;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $acent-hover-color;
+  }
+}

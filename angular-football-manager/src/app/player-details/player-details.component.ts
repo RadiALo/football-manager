@@ -10,7 +10,7 @@ import { InfoResponse } from '../model/info';
 @Component({
   selector: 'app-player-details',
   templateUrl: './player-details.component.html',
-  styleUrls: ['./player-details.component.css']
+  styleUrls: ['./player-details.component.scss']
 })
 export class PlayerDetailsComponent {
   player: PlayerResponse = {} as PlayerResponse

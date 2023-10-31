@@ -1,0 +1,43 @@
+@import './util/variables';
+
+.page {
+  background: $background-color;
+  font-family: 'Signika', sans-serif;
+  font-size: 20px;
+}
+
+.page--body {
+  margin: 0;
+}
+
+a.button {
+  margin-right: 5px;
+}
+
+a.button:hover {
+  background-color: #dcd063;
+}
+
+/* div */
+div.container {
+  background-color: $main-color;
+  float: inherit;
+  text-align: left;
+  margin-top: 24px;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+
+input.like {
+  float: right;
+  background-color: rgba(0,0,0,0);
+  border-color: rgba(0,0,0,0);
+}
+
+input.like:hover {
+  background-color: gold;
+  border-radius: 4px;
+}
