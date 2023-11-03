@@ -1,40 +1,122 @@
-<div class="container">
-  <table>
+<div class="players-list">
+  <table class="players-list--table">
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Expirience</td>
+      <td>Age</td>
+      <td>Team</td>
+      <td></td>
+    </tr>
+
     <tr *ngFor="let player of players">
       <td>{{ player.id }}</td>
-      <td><a [routerLink]="['/players', player.id]">{{ player.firstName }}</a></td>
-      <td><a [routerLink]="['/players', player.id]">{{ player.lastName }}</a></td>
+      <td><a class="players-list--table--link" [routerLink]="['/players', player.id]">{{ player.firstName }} {{ player.lastName }}</a></td>
       <td>{{ player.experienceMonths }}</td>
       <td>{{ player.age }}</td>
       <td>{{ player.teamId ? getTeamName(player.teamId) : '' }}</td>
       <td>
-        <button class="delete-button" (click)="deletePlayer(player)">
-            Delete  
-        </button>
+        <button
+          class="players-list--table--delete-button"
+          (click)="deletePlayer(player)"
+        ></button>
       </td>
     </tr>
   </table>
-</div>
-<div>
-  <button class="page-button" (click)="prevPage()" *ngIf="page !== 0"> 
-    Prev page
-  </button>
-  <button class="page-button" (click)="nextPage()" *ngIf="(page + 1) * size < info.countOfElements"> 
-    Next page
-  </button>
+
+  <div class="players-list--panel">
+    <button
+      class="players-list--button"
+      (click)="prevPage()"
+      *ngIf="page !== 0"
+    >
+      Prev page
+    </button>
+
+    <button
+      class="players-list--button"
+      (click)="nextPage()"
+      *ngIf="(page + 1) * size < info.countOfElements"
+    >
+      Next page
+    </button>
+  </div>
 </div>
 
-<h2>Add new player</h2>
+<div class="add-player">
+  <h2 class="add-player--tittle">Add new player</h2>
 
-<div class="container">
-  <p>First name: <input placeholder="First name" [(ngModel)]="newPlayer.firstName"></p>
-  <p>Last name: <input placeholder="Last name" [(ngModel)]="newPlayer.lastName"></p>
-  <p>Experience: <input placeholder="Experience in months" [(ngModel)]="newPlayer.experienceMonths" type="number"></p>
-  <p>Age: <input placeholder="Age" [(ngModel)]="newPlayer.age" type="number"></p>
-  <p>Team:
-    <select [(ngModel)]="newPlayer.teamId">
-      <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
-    </select>
-  </p>
-  <button (click)="addPlayer()">Add Player</button>
+  <div class="add-player--container">
+    <div class="add-player--field">
+      <div>
+        First name:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input
+          placeholder="First name"
+          [(ngModel)]="newPlayer.firstName">
+      </div>
+    </div>
+
+    <div class="add-player--field">
+      <div>
+        Last name:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input
+          placeholder="Last name"
+          [(ngModel)]="newPlayer.lastName"
+        >
+      </div>
+    </div>
+
+    <div class="add-player--field">
+      <div>
+        Experience:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input
+          placeholder="Experience in months"
+          [(ngModel)]="newPlayer.experienceMonths"
+          type="number"
+        >
+      </div>
+    </div>
+
+    <div class="add-player--field">
+      <div>
+        Age:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input
+          placeholder="Age"
+          [(ngModel)]="newPlayer.age"
+          type="number"
+        >
+      </div>
+    </div>
+
+    <div class="add-player--field">
+      <div>Team:</div>
+
+      <div class="add-player--field--right-value">
+        <select class="add-player--field--list" [(ngModel)]="newPlayer.teamId">
+          <option *ngFor="let team of teams" [value]="team.id">
+            {{ team.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <button
+      class="add-player--button"
+      (click)="addPlayer()"
+    >
+      Add Player
+    </button>
+  </div>
 </div>

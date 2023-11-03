@@ -9,7 +9,7 @@ import { InfoResponse } from '../model/info';
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
-  styleUrls: ['./players.component.css']
+  styleUrls: ['./players.component.scss']
 })
 export class PlayersComponent {
   info: InfoResponse = {} as InfoResponse
@@ -18,7 +18,7 @@ export class PlayersComponent {
   newPlayer: PlayerRequest = {} as PlayerRequest;
   page: number = 0;
   size: number = 5;
-  
+
   constructor(
     private playerService: PlayerService,
     private teamService: TeamService
@@ -42,7 +42,7 @@ export class PlayersComponent {
   getPlayers() {
     this.playerService.getPlayers(this.page, this.size).subscribe((players: PlayerResponse[]) => {
       this.players = players
-      
+
     })
     this.teamService.getInfo().subscribe((info: InfoResponse) => {
       this.teamService.getTeams(0, info.countOfElements).subscribe((teams: TeamResponse[]) => {
