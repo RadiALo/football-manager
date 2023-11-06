@@ -1,0 +1,161 @@
+$background-color: #2B2E4A;
+
+$main-color: #E84545;
+$main-text-color: #2B2E4A;
+$main-box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+$link-color: rgb(255, 221, 26);
+
+$acent-color: #903749;
+$acent-hover-color: #7f3244;
+$acent-text-color: #372030;
+$acent-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+$table-color: #fde3e3;
+$table-secondary-color: #fef2f2;
+$table-acent-color: #fccccc;
+$table-link-color: #E84545;
+
+$logo-box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+@mixin form {
+  color: $main-text-color;
+
+  &--tittle {
+    text-align: center;
+    color: $main-color;
+    font-size: 32px;
+  }
+
+  &--buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--id {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+
+    background-color: $main-color;
+    box-shadow: $acent-box-shadow;
+    border-radius: 50%;
+
+    color: $main-text-color;
+    text-align: center;
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  &--link {
+    color: $link-color;
+  }
+
+  &--field {
+    display: flex;
+    justify-content: space-between;
+
+    &--right-value {
+      width: 200px;
+    }
+
+    &--list {
+      width: 180px;
+    }
+  }
+
+  &--container {
+    box-shadow: $main-box-shadow;
+    margin: 10px auto;
+    padding: 32px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 600px;
+    background-color: $main-color;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  &--button {
+    @include button;
+  }
+}
+
+@mixin table {
+  border-collapse: collapse;
+    width: 60%;
+    margin: 40px auto;
+    box-shadow: $acent-box-shadow;
+
+    th, td {
+      padding: 12px 15px;
+    }
+
+    tr {
+      &:first-of-type {
+        background-color: $main-color;
+        color: $main-text-color;
+      }
+
+      background-color: $table-color;
+      color: $acent-text-color;
+      text-align: left;
+
+      border-bottom: 1px solid #dddddd;
+
+      &:hover:not(:first-of-type) {
+        background-color: $table-acent-color;
+      }
+
+      &:nth-of-type(even) {
+        background-color: $table-secondary-color;
+      }
+
+      &:last-of-type {
+        border-bottom: 2px solid $main-color;
+      }
+    }
+
+    &--link {
+      color: $table-link-color;
+    }
+
+    &--delete-button {
+      background: none;
+      border: none;
+      display: block;
+      width: 35px;
+      height: 35px;
+      background-image: url('../assets/x-mark.png');
+      background-size: cover;
+
+      &:hover {
+        background-image: url('../assets/x-mark-hover.png');
+      }
+    }
+}
+
+@mixin button {
+  font-family: 'Signika', sans-serif;
+  display: block;
+  height: 50px;
+  width: 200px;
+  box-sizing: border-box;
+
+  background-color: $acent-color;
+  border-color: rgb(255, 239, 75, 0);
+  border-radius: 8px;
+  box-shadow: $acent-box-shadow;
+
+  color: $acent-text-color;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $acent-hover-color;
+  }
+}

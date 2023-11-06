@@ -9,7 +9,7 @@ import { InfoResponse } from '../model/info';
 @Component({
   selector: 'app-transfer',
   templateUrl: './transfer.component.html',
-  styleUrls: ['./transfer.component.css']
+  styleUrls: ['./transfer.component.scss']
 })
 export class TransferComponent {
   players: PlayerResponse[] = []

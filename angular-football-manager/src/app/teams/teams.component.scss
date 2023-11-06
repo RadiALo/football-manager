@@ -1,0 +1,21 @@
+@import '../../util/variables';
+
+.add-team {
+  @include form;
+}
+
+.team-list {
+  &--table {
+    @include table;
+  }
+
+  &--panel {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  &--button {
+    @include button;
+  }
+}

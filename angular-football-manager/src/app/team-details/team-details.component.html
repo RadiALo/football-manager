@@ -1,21 +1,129 @@
-<h2>Team Details</h2>
-<p>{{ team.id }}</p>
-<div *ngIf="!editMode" class="container">
-  <p>Name: {{ team.name }}</p>
-  <p>City: {{ team.city }}</p>
-  <p>Country: {{ team.country }}</p>
-  <p>Budget: {{ team.budget }}</p>
-  <p>Transfer commision: {{ team.transferCommission }}</p>
-  <p>
-    <button *ngIf="!editMode" (click)="editMode = true">Edit</button>
-  </p>
-</div>
-<div *ngIf="editMode" class="container">
-  <p>Name: <input [(ngModel)]="team.name"></p>
-  <p>City: <input [(ngModel)]="team.city"></p>
-  <p>Country: <input [(ngModel)]="team.country"></p>
-  <p>Budget: <input [(ngModel)]="team.budget" type="number"></p>
-  <p>Transfer commision: <input [(ngModel)]="team.transferCommission" type="number"></p>
-  <button (click)="save()">Save</button>
-  <button (click)="cancel()">Cancel</button>
+<div class="team-details">
+  <h2 class="team-details--tittle">Team Details</h2>
+  <p class="team-details--id">{{ team.id }}</p>
+
+  <div class="team-details--card">
+    <div
+      *ngIf="!editMode"
+      class="team-details--container"
+    >
+    <div class="team-details--field">
+      <div>
+        Name:
+      </div>
+      <div class="team-details--field--right-value">
+        {{ team.name }}
+      </div>
+    </div>
+    <div class="team-details--field">
+      <div>
+        City:
+      </div>
+
+      <div class="team-details--field--right-value">
+        {{ team.city }}
+      </div>
+    </div>
+    <div class="team-details--field">
+      <div>
+        Country:
+      </div>
+
+      <div class="team-details--field--right-value">
+        {{ team.country }}
+      </div>
+    </div>
+    <div class="team-details--field">
+      <div>
+        Budget:
+      </div>
+
+      <div class="team-details--field--right-value">
+        {{ team.budget }}$
+      </div>
+    </div>
+    <div class="team-details--field">
+      <div>
+        Transfer commision:
+      </div>
+
+      <div class="team-details--field--right-value">
+        {{ team.transferCommission }}
+      </div>
+    </div>
+    <div class="team-details--field">
+      <button
+        class="team-details--button"
+        *ngIf="!editMode"
+        (click)="editMode = true"
+      >
+        Edit
+      </button>
+    </div>
+  </div>
+
+  <div
+    *ngIf="editMode"
+    class="team-details--container"
+  >
+      <div class="team-details--field">
+        <div>
+          Name:
+        </div>
+
+        <div class="team-details--field--right-value">
+          <input [(ngModel)]="team.name">
+        </div>
+      </div>
+
+      <div class="team-details--field">
+        <div>
+          City:
+        </div>
+
+        <div class="team-details--field--right-value">
+          <input [(ngModel)]="team.city">
+        </div>
+      </div>
+
+      <div class="team-details--field">
+        <div>
+          Country:
+        </div>
+
+        <div class="team-details--field--right-value">
+          <input [(ngModel)]="team.country">
+        </div>
+      </div>
+
+      <div class="team-details--field">
+        <div>
+          Budget:
+        </div>
+
+        <div class="team-details--field--right-value">
+          <input [(ngModel)]="team.budget" type="number">
+        </div>
+      </div>
+
+      <div class="team-details--field">
+        <div>
+          Transfer commision:
+        </div>
+
+        <div class="team-details--field--right-value">
+          <input [(ngModel)]="team.transferCommission" type="number">
+        </div>
+      </div>
+
+      <div class="team-details--field">
+        <button class="team-details--button" (click)="cancel()">
+          Cancel
+        </button>
+
+        <button class="team-details--button" (click)="save()">
+          Save
+        </button>
+      </div>
+  </div>
 </div>

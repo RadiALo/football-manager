@@ -1,0 +1,5 @@
+@import '../../util/variables';
+
+.player-details {
+  @include form;
+}

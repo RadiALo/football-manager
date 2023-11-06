@@ -1,37 +1,149 @@
-<h2>Player Details</h2>
-<p>{{ player.id }}</p>
-<div *ngIf="!editMode" class="container">
-  <p> First name: {{ player.firstName }}</p>
-  <p> Second name: {{ player.lastName }}</p>
-  <p> Experience: {{ player.experienceMonths }}</p>
-  <p> Age: {{ player.age }}</p>
-  <p> Team:
-    <a *ngIf="player.teamId" [routerLink]="['/teams', player.teamId, 'players']">
-        {{ getTeamName(player.teamId) }}
-    </a>
+<div class="player-details">
+  <h2 class="player-details--tittle">
+    Player Details
+  </h2>
+
+  <p class="player-details--id">
+    {{ player.id }}
   </p>
-  <p *ngIf="!player.teamId">
-    Unknown
-  </p>
-  <p>
-    <button (click)="editMode = true">Edit</button>
-  </p>
-</div>
-<div *ngIf="editMode" class="container">
-  <p>First name: <input [(ngModel)]="player.firstName"></p>
-  <p>Last name: <input [(ngModel)]="player.lastName"></p>
-  <p>Experience: <input [(ngModel)]="player.experienceMonths" type="number"></p>
-  <p>Age: <input [(ngModel)]="player.age" type="number"></p>
-  <p> Team:
-    <select [(ngModel)]="player.teamId">
-      <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
-    </select>
-  </p>
-  <p *ngIf="!player.teamId">
-    Unknown
-  </p>
-  <p>
-    <button (click)="save()">Save</button>
-    <button (click)="cancel()">Cancel</button>
-  </p>
+
+  <div class="player-details--card">
+    <div
+    *ngIf="!editMode"
+    class="player-details--container"
+  >
+    <div class="player-details--field">
+      <div>
+        First name:
+      </div>
+
+      <div class="player-details--field--right-value">
+        {{ player.firstName }}
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Last name:
+      </div>
+
+      <div class="player-details--field--right-value">
+        {{ player.lastName }}
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Experience:
+      </div>
+
+      <div class="player-details--field--right-value">
+        {{ player.experienceMonths }}
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Age:
+      </div>
+
+      <div class="player-details--field--right-value">
+        {{ player.age }}
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Team:
+      </div>
+
+      <div class="player-details--field--right-value">
+        <a
+          class="player-details--link"
+          *ngIf="player.teamId"
+          [routerLink]="['/teams', player.teamId, 'players']"
+        >
+            {{ getTeamName(player.teamId) }}
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="!player.teamId">
+      Unknown
+    </div>
+
+    <div>
+      <button class="player-details--button" (click)="editMode = true">
+        Edit
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="editMode" class="player-details--container">
+    <div class="player-details--field">
+      <div>
+        First name:
+      </div>
+      <div class="player-details--field--right-value">
+        <input [(ngModel)]="player.firstName">
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Last name:
+      </div>
+
+      <div class="player-details--field--right-value">
+        <input [(ngModel)]="player.lastName">
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Experience:
+      </div>
+
+      <div class="player-details--field--right-value">
+        <input [(ngModel)]="player.experienceMonths" type="number">
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Age:
+      </div>
+
+      <div class="player-details--field--right-value">
+        <input [(ngModel)]="player.age" type="number">
+      </div>
+    </div>
+
+    <div class="player-details--field">
+      <div>
+        Team:
+      </div>
+      <div class="player-details--field--right-value">
+        <select [(ngModel)]="player.teamId" class="player-details--field--list">
+          <option
+            *ngFor="let team of teams"
+            [value]="team.id"
+          >
+            {{ team.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="player-details--buttons-container">
+      <button class="player-details--button" (click)="cancel()">
+        Cancel
+      </button>
+
+      <button class="player-details--button" (click)="save()">
+        Save
+      </button>
+    </div>
+  </div>
+  </div>
 </div>

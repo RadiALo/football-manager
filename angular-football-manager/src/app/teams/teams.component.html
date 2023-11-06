@@ -1,28 +1,90 @@
-<div class="container">
-  <table>
+<div class="teams-list">
+  <table class="team-list--table">
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>City</td>
+      <td>Country</td>
+      <td>Budget</td>
+      <td>Transfer commision</td>
+      <td></td>
+    </tr>
     <tr *ngFor="let team of teams">
       <td>{{ team.id }}</td>
-      <td><a [routerLink]="['/teams', team.id, 'players']">{{ team.name }}</a></td>
+      <td><a class="team-list--table--link" [routerLink]="['/teams', team.id, 'players']">{{ team.name }}</a></td>
       <td>{{ team.city }}</td>
       <td>{{ team.country }}</td>
       <td>{{ team.budget }}</td>
       <td>{{ team.transferCommission }}</td>
       <td>
-        <button class="delete-button" (click)="deleteTeam(team)">
-          Delete
-        </button>
+        <button
+          class="team-list--table--delete-button"
+          (click)="deleteTeam(team)"
+        ></button>
       </td>
     </tr>
   </table>
 </div>
 
-<h2>Add new team</h2>
-    
-<div class="container">
-  <p>Name: <input placeholder="Name" [(ngModel)]="newTeam.name"></p>
-  <p>City: <input placeholder="City" [(ngModel)]="newTeam.city"></p>
-  <p>Country: <input placeholder="Country" [(ngModel)]="newTeam.country"></p>
-  <p>Budget: <input placeholder="Budget" [(ngModel)]="newTeam.budget"></p>
-  <p>Transfer Commission: <input placeholder="Transfer commission" [(ngModel)]="newTeam.transferCommission"></p>
-  <button (click)="addTeam()">Add Team</button>
+<div class="add-team">
+  <h2 class="add-team--tittle">
+    Add new team
+  </h2>
+
+  <div class="add-team--container">
+    <div class="add-team--field">
+      <div>
+        Name:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input placeholder="Name" [(ngModel)]="newTeam.name">
+      </div>
+    </div>
+
+    <div class="add-team--field">
+      <div>
+        City:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input placeholder="City" [(ngModel)]="newTeam.city">
+      </div>
+    </div>
+
+    <div class="add-team--field">
+      <div>
+        Country:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input placeholder="Country" [(ngModel)]="newTeam.country">
+      </div>
+    </div>
+
+    <div class="add-team--field">
+      <div>
+        Budget:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input placeholder="Budget" [(ngModel)]="newTeam.budget">
+      </div>
+    </div>
+
+    <div class="add-team--field">
+      <div>
+        Transfer Commission:
+      </div>
+
+      <div class="add-player--field--right-value">
+        <input placeholder="Transfer commission" [(ngModel)]="newTeam.transferCommission">
+      </div>
+    </div>
+
+    <button class="add-team--button" (click)="addTeam()">
+      Add Team
+    </button>
+  </div>
 </div>
+
